@@ -7,12 +7,13 @@ module ActiveCms
       exclude_self  ||= options[:exclude_self]  # should the current page be included ad first item? default: yes
       no_link       ||= options[:no_link]       # should the current page be linked? default: yes
       no_links      ||= options[:no_links]      # should the subpages be linked? default: yes
+      my_class         ||= options[:class]      # should the subpages be linked? default: yes
       
       page = ActiveCms::Page.where(:slug =>slug.to_s).first
       return "No page for '#{slug.to_s}' found." if !page 
       return "No pages in '#{slug.to_s}' found." if !page.children || page.children.size == 0
       
-      ret = "<ul class=\"#{page.slug}\">"
+      ret = "<ul class=\"#{page.slug} #{my_class}\">"
       ret << "<li>"+((!no_link)? "<a href=\"#{page.link}\">#{page.title}</a>" : "#{page.title}") + "<ul>" unless exclude_self
       page.children.where(:menu => true).each do |item|
         ret << "<li class=\"#{item.slug}\"><a href=\"#{item.link}\">#{item.title}</a></li>" unless no_links
