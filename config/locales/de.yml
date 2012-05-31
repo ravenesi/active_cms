@@ -1,14 +1,9 @@
 de:
+  
   activerecord:
     models:
-      active_cms_page:
-        one: CMS-Seite
-        other: CMS-Seiten
-    attributes:
-      active_cms_page: 
-        title: Titre
-        model: lalala
-  
+      active_cms_page: Seite
+        
   active_cms:
     pages:
       label: 'CMS'

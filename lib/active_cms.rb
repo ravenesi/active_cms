@@ -1,5 +1,5 @@
 require 'active_cms/engine'
-require 'ckeditor'
+require 'tinymce-rails'
 require 'friendly_id'
 require 'ancestry'
 

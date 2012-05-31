@@ -1,5 +1,7 @@
 # encoding: utf-8
-ActiveAdmin.register ActiveCms::Page, :as => 'CmsPage' do
+ActiveAdmin.register ActiveCms::Page do
+  
+  menu :label => proc{ I18n.t("active_cms.pages.label") }, :if => proc{ defined?('can?') && can?(:manage, ActiveCms::Page) }
   
   form do |f|
     f.inputs I18n.t("active_cms.pages.fields.sections.basic"), :class => 'basic' do
@@ -7,7 +9,7 @@ ActiveAdmin.register ActiveCms::Page, :as => 'CmsPage' do
       f.input :title, :label => I18n.t("active_cms.pages.fields.title")
       f.input :slug, :label => I18n.t("active_cms.pages.fields.slug")
       
-      f.input :body, :label => I18n.t("active_cms.pages.fields.body"), :input_html => { :class => :ckeditor }
+      f.input :body, :label => I18n.t("active_cms.pages.fields.body"), :input_html => { :class => :tinymce }
     end
 
     f.inputs I18n.t("active_cms.pages.fields.sections.settings"), :class => 'settings' do
@@ -25,8 +27,6 @@ ActiveAdmin.register ActiveCms::Page, :as => 'CmsPage' do
     
     f.buttons
   end
-  
-  menu :label => proc{ I18n.t("active_cms.pages.label") }
   
   show :title => :show_title do |page|
     h3 page.title

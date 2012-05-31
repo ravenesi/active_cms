@@ -9,7 +9,6 @@ module ActiveCms
       require File.dirname(__FILE__) + '/../../config/initializers/active_admin.rb'
       require File.dirname(__FILE__) + '/../../config/initializers/active_cms.rb'
       
-      require File.dirname(__FILE__) + '/../../config/initializers/ckeditor.rb'
       require File.dirname(__FILE__) + '/../../app/admin/pages.rb'
       # include dragonfly for file-handling
       require 'dragonfly/rails/images'
