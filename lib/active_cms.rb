@@ -1,5 +1,6 @@
 require 'active_cms/engine'
 require 'tinymce-rails'
+require 'tinymce-rails-langs'
 require 'friendly_id'
 require 'ancestry'
 

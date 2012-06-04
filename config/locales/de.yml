@@ -3,6 +3,7 @@ de:
   activerecord:
     models:
       active_cms_page: Seite
+      admin_permission: Admin-Berechtigung
         
   active_cms:
     pages:

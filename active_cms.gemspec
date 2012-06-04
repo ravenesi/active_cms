@@ -5,6 +5,7 @@ require "active_cms/version"
 
 # Describe your gem and declare its dependencies:
 Gem::Specification.new do |s|
+  
   s.name        = "active_cms"
   s.version     = ActiveCms::VERSION
   s.authors     = ["geisters: Frank Cieslik"]
@@ -26,5 +27,6 @@ Gem::Specification.new do |s|
   s.add_dependency "dragonfly"
 
   s.add_dependency "tinymce-rails"
+  s.add_dependency "tinymce-rails-langs"
   
 end
