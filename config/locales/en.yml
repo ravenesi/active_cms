@@ -1,12 +1,8 @@
 en:
+  
   activerecord:
     models:
-      active_cms_page:
-        one: CMS-Pages
-        other: CMS-Pages
-    attributes:
-      active_cms_page: 
-        title: Title
+      cms_page: Page
   
   active_cms:
     pages:
