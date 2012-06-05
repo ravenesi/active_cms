@@ -13,10 +13,12 @@ module ActiveCms
       return "No page for '#{slug.to_s}' found." if !page 
       return "No pages in '#{slug.to_s}' found." if !page.children || page.children.size == 0
       
+      page_link = (page.redirect != "")? page.redirect : page.link
       ret = "<ul class=\"#{page.slug} #{my_class}\">"
-      ret << "<li>"+((!no_link)? "<a href=\"#{page.link}\">#{page.title}</a>" : "#{page.title}") + "<ul>" unless exclude_self
+      ret << "<li>"+((!no_link)? "<a href=\"#{page_link}\">#{page.title}</a>" : "#{page.title}") + "<ul>" unless exclude_self
       page.children.where(:menu => true).each do |item|
-        ret << "<li class=\"#{item.slug}\"><a href=\"#{item.link}\">#{item.title}</a></li>" unless no_links
+        item_link = (item.redirect != "")? item.redirect : item.link
+        ret << "<li class=\"#{item.slug}\"><a href=\"#{item_link}\">#{item.title}</a></li>" unless no_links
         ret << "<li class=\"#{item.slug}\">#{item.title}</li>" if no_links
       end
       ret << "</ul></li>" unless exclude_self
