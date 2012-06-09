@@ -20,7 +20,7 @@ class CreateCkeditorAssets < ActiveRecord::Migration
     end
     
     add_index "active_cms_assets", ["assetable_type", "type", "assetable_id"], :name => "idx_ckeditor_assetable_type"
-		add_index "active_cms_assets", ["assetable_type", "assetable_id"], :name => "idx_ckeditor_assetable"
+    add_index "active_cms_assets", ["assetable_type", "assetable_id"], :name => "idx_ckeditor_assetable"
   end
 
   def self.down
