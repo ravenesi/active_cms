@@ -7,8 +7,8 @@ require 'ancestry'
 require 'rack/cache'
 require 'dragonfly'
 
-#override the standard from ckeditor
-require 'active_cms/backend/dragonfly'
+# include helper for use in frontend
+require File.dirname(__FILE__) + '/../app/helpers/active_cms/pages_helper.rb'
 
 module ActiveCms
 
