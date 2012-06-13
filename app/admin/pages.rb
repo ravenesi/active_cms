@@ -50,5 +50,3 @@ ActiveAdmin.register ActiveCms::Page, :as => 'CmsPage' do
   end
   
 end
-
-ActiveAdmin::Resources::register_resource('ActiveCms::Page', [ :manage ]) if defined?('ActiveAdmin::Resources')
