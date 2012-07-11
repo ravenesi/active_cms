@@ -5,8 +5,9 @@ de:
       cms_page: Seite
         
   active_cms:
+    label: 'CMS'
     pages:
-      label: 'CMS'
+      label: 'Seiten'
       
       index:
         header:

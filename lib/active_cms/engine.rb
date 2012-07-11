@@ -1,7 +1,5 @@
 module ActiveCms
   class Engine < ::Rails::Engine
-    #isolate_namespace ActiveCms
-    
     config.i18n.load_path += Dir[File.dirname(__FILE__) + '/../../config/locales/' + '*.{rb,yml}']
     
     # load admin-module
