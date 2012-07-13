@@ -3,15 +3,20 @@ ActiveAdmin.register ActiveCms::Page, :as => 'CmsPage' do
   
   menu :label => 'active_cms.pages.label', :parent => 'active_cms.label', :if => proc{ defined?('can?') && can?(:manage, ActiveCms::Page) }
   
+  filter :title
+  
   form do |f|
     f.inputs I18n.t("active_cms.pages.fields.sections.basic"), :class => 'basic' do
       
       f.input :title, :label => I18n.t("active_cms.pages.fields.title")
       f.input :slug, :label => I18n.t("active_cms.pages.fields.slug")
-      
-      f.input :body, :label => I18n.t("active_cms.pages.fields.body"), :input_html => { :class => :tinymce }
+
     end
 
+    f.inputs I18n.t("active_cms.pages.fields.body"), :class => 'inputs full-input' do
+      f.input :body, :label => false, :input_html => { :class => :tinymce_cms_page }
+    end
+    
     f.inputs I18n.t("active_cms.pages.fields.sections.settings"), :class => 'settings' do
       f.input :parent_id, :as => :select, :collection => ActiveCms::Page::tree(params[:id]), :label => I18n.t("active_cms.pages.fields.parent_id")
       f.input :skip, :label => I18n.t("active_cms.pages.fields.skip")

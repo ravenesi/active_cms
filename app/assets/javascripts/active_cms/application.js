@@ -11,15 +11,20 @@
 // GO AFTER THE REQUIRES BELOW.
 //= require tinymce-jquery
 
-
-tinyMCE.init({
-  mode : "specific_textareas",
-  editor_selector: 'tinymce',
-  theme : "advanced",
-  language : "de",
-  theme_advanced_toolbar_location : "top",
-  theme_advanced_buttons1 : "bold,italic,underline,separator,bullist,numlist,separator,undo,redo,separator,cleanup,removeformat", // "separator,insertdate,inserttime,preview,zoom,separator,forecolor,backcolor",
-  theme_advanced_buttons2 : "",
-  theme_advanced_buttons3 : "", //hr,removeformat,visualaid,separator,sub,sup,separator,charmap",
-  constrain_menus : true
+$(document).ready(function() {
+  if($('.tinymce_cms_page').length > 0) {
+    tinyMCE.init({
+      mode : "specific_textareas",
+      editor_selector: 'tinymce_cms_page',
+      theme : "advanced",
+      language : "de",
+      plugins : "fullscreen",
+      theme_advanced_blockformats : "h2,h3,h4,h5,h6,blockquote",
+      theme_advanced_toolbar_location : "top",
+      theme_advanced_buttons1 : "formatselect,bold,italic,underline,separator,anchor,link,bullist,numlist,separator,undo,redo,separator,cleanup,removeformat,separator,code,fullscreen", // "separator,insertdate,inserttime,preview,zoom,separator,forecolor,backcolor",
+      theme_advanced_buttons2 : "",
+      theme_advanced_buttons3 : "", //hr,removeformat,visualaid,separator,sub,sup,separator,charmap",
+      constrain_menus : true
+    });
+  }
 });
