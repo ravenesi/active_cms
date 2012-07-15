@@ -3,6 +3,7 @@ ActiveAdmin.register ActiveCms::Page, :as => 'CmsPage' do
   
   menu :label => 'active_cms.pages.label', :parent => 'active_cms.label', :if => proc{ defined?('can?') && can?(:manage, ActiveCms::Page) }
   
+  config.batch_actions = false
   filter :title
   
   form do |f|
