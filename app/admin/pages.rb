@@ -34,10 +34,19 @@ ActiveAdmin.register ActiveCms::Page, :as => 'CmsPage' do
     f.buttons
   end
   
+  sidebar :pages_tree, :only => :index
+  
+  # only show file in category
+  controller do
+    def scoped_collection
+      ActiveCms::Page.where( :parent_id => (params[:page_id] || nil) )
+    end
+  end
+  
   show :title => :show_title do |page|
     h3 page.title
     div do
-      render :partial => "admin/pages/preview", :locals => {:page => page }
+      render :partial => "admin/cms_pages/preview", :locals => {:page => page }
     end
   end
   
@@ -50,9 +59,5 @@ ActiveAdmin.register ActiveCms::Page, :as => 'CmsPage' do
     column I18n.t("active_cms.pages.index.header.link"), :link, :sortable => false
     default_actions
   end
-  
-  #sidebar proc{ I18n.t("active_cms.pages.label") }, :only => :show do 
-  #  render :partial => "admin/pages/show_sidebar"
-  #end
   
 end

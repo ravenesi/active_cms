@@ -1,0 +1,4 @@
+<ul class="media_categories_tree">
+  <li><%= raw "<a href=\"#{admin_cms_pages_path}\" class=\"" + ((!params[:parent_id] || (params[:parent_id].to_i == 0))? 'active' : '') + "\">#{I18n.t('active_cms.pages.sidebar.none')}</a>"%></li>
+  <%= raw (nested_set_options(ActiveCms::Page) {|i| "<li>#{'&nbsp;&nbsp;&nbsp;' * i.level}<a href=\"#{admin_cms_pages_path}?page_id=#{i.id}\" class=\"" + ((params[:page_id] && (params[:page_id].to_i == i.id))? 'active' : '') + "\">#{i.title}</a></li>"  }).collect{ |item| item.first }.join("\n") %>
+</ul>

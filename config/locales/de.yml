@@ -1,8 +1,14 @@
 de:
   
+  active_admin:
+    sidebars:
+      pages_tree: 'Seiten-Hierarchie'
+
   activerecord:
     models:
-      cms_page: Seite
+      active_cms/page:
+        one: Seite
+        other: Seiten
         
   active_cms:
     label: 'CMS'
@@ -16,12 +22,11 @@ de:
           link: Link
         icon:
           
-        
+      sidebar:
+        none: alle Seiten
+
       show:
         title: "Seiten-Vorschau für '%{title}'"
-      
-      sidebar_show:
-        header: 'Aktionen'
       
       fields:
         sections:
