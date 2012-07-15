@@ -6,7 +6,8 @@ module ActiveCms
     extend FriendlyId
     friendly_id :make_slug, :use => :slugged
     
-    has_ancestry
+    #has_ancestry
+    acts_as_nested_set
     
     #####
     ## Admin - Functions

@@ -18,7 +18,8 @@ ActiveAdmin.register ActiveCms::Page, :as => 'CmsPage' do
     end
     
     f.inputs I18n.t("active_cms.pages.fields.sections.settings"), :class => 'settings' do
-      f.input :parent_id, :as => :select, :collection => ActiveCms::Page::tree(params[:id]), :label => I18n.t("active_cms.pages.fields.parent_id")
+      f.input :parent_id, :label => I18n.t("active_cms.pages.fields.parent_id"), :as => :select, :collection => nested_set_options(ActiveCms::Page, f.object) {|i| "#{'-' * i.level} #{i.title}"  }
+      
       f.input :skip, :label => I18n.t("active_cms.pages.fields.skip")
       f.input :menu, :label => I18n.t("active_cms.pages.fields.menu")
       f.input :redirect, :label => I18n.t("active_cms.pages.fields.redirect")
@@ -36,7 +37,7 @@ ActiveAdmin.register ActiveCms::Page, :as => 'CmsPage' do
   show :title => :show_title do |page|
     h3 page.title
     div do
-      simple_format page.body
+      render :partial => "admin/pages/preview", :locals => {:page => page }
     end
   end
   
@@ -50,8 +51,8 @@ ActiveAdmin.register ActiveCms::Page, :as => 'CmsPage' do
     default_actions
   end
   
-  sidebar proc{ I18n.t("active_cms.pages.label") }, :only => :show do 
-    render :partial => "admin/pages/show_sidebar"
-  end
+  #sidebar proc{ I18n.t("active_cms.pages.label") }, :only => :show do 
+  #  render :partial => "admin/pages/show_sidebar"
+  #end
   
 end
