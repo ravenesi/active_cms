@@ -2,7 +2,7 @@ de:
   
   active_admin:
     sidebars:
-      pages_tree: 'Seiten-Hierarchie'
+      pages_tree: Seiten-Hierarchie
 
   activerecord:
     models:
