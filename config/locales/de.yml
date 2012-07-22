@@ -1,9 +1,5 @@
 de:
   
-  active_admin:
-    sidebars:
-      pages_tree: Seiten-Hierarchie
-
   activerecord:
     models:
       active_cms/page:
@@ -50,3 +46,7 @@ de:
         meta_title: Seiten-Titel
         meta_keywords: Keywords
         meta_description: Beschreibung
+  
+  active_admin:
+    sidebars:
+      pages_tree: Seiten-Hierarchie
