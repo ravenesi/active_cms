@@ -1,4 +1,7 @@
 de:
+  active_admin:
+    sidebars:
+      pages_tree: Seiten-Hierarchie
   
   activerecord:
     models:
@@ -46,9 +49,3 @@ de:
         meta_title: Seiten-Titel
         meta_keywords: Keywords
         meta_description: Beschreibung
-
-# TODO: new ruby version doesn't merge and overwrite all active_admin namespace.
-# try to find a workaround, or copy it to the main file
-#  active_admin:
-#    sidebars:
-#      pages_tree: Seiten-Hierarchie
