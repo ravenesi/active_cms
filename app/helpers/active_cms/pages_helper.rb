@@ -11,7 +11,7 @@ module ActiveCms
       act_page      ||= options[:act_page]          # should the subpages be linked? default: false
       
       # create the page object
-      if slug.respond_to?('id') && slug.id > 0
+      if slug.respond_to?('slug')
         page = slug
       elsif slug.to_i > 0
         page = ActiveCms::Page.find(slug.to_i)
