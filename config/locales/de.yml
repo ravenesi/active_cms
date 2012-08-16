@@ -36,6 +36,7 @@ de:
         title: Titel
         slug: URL / Identifizierung
         body: Inhalt
+        view_template: besonderes Seiten-Template
         
         parent_id: Übergeordnete Seite
         skip: Automatisch auf untere Ebene weiterleiten?
