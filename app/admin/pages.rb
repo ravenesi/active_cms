@@ -12,7 +12,7 @@ ActiveAdmin.register ActiveCms::Page, :as => 'CmsPage' do
       
       f.input :title, :label => I18n.t("active_cms.pages.fields.title")
       f.input :slug, :label => I18n.t("active_cms.pages.fields.slug")
-
+      f.input :view_template, :label => I18n.t("active_cms.pages.fields.view_template"), :collection => ViewTemplate.find(:all, :conditions => "identifier like 'cms_pages_%' and identifier <> 'cms_pages_show'")
     end
 
     f.inputs I18n.t("active_cms.pages.fields.body"), :class => 'inputs full-input' do

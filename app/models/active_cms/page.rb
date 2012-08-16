@@ -11,6 +11,8 @@ module ActiveCms
     #has_ancestry
     acts_as_nested_set
     
+    belongs_to :view_template
+    
     #####
     ## Admin - Functions
     #####
