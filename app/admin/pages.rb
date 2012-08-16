@@ -3,6 +3,7 @@ ActiveAdmin.register ActiveCms::Page, :as => 'CmsPage' do
   
   menu :label => 'active_cms.pages.label', :parent => 'active_cms.label', :if => proc{ defined?('can?') && can?(:manage, ActiveCms::Page) }
   
+  config.sort_order = 'lft'
   config.batch_actions = false
   filter :title
   
@@ -52,6 +53,7 @@ ActiveAdmin.register ActiveCms::Page, :as => 'CmsPage' do
   end
   
   index do
+    
     column '', :skip_icon, :sortable => false
     column '', :redirect_icon, :sortable => false
     column '', :menu_icon, :sortable => false
@@ -59,6 +61,24 @@ ActiveAdmin.register ActiveCms::Page, :as => 'CmsPage' do
     column I18n.t("active_cms.pages.index.header.slug"), :slug, :sortable => false
     column I18n.t("active_cms.pages.index.header.link"), :link, :sortable => false
     default_actions
+    
+    column I18n.t("active_cms.pages.index.header.order") do |page|
+      link_to(raw('<i class="icon-circle-arrow-up"></i>'), move_left_admin_cms_page_path(page)) +
+      ' ' + link_to(raw('<i class="icon-circle-arrow-down"></i>'), move_right_admin_cms_page_path(page))
+    end
+    
+  end
+  
+  member_action :move_left, :method => :get do
+    page = ActiveCms::Page.find(params[:id])
+    page.move_left
+    redirect_to({ :action => :index, :page_id => page.parent_id }, :notice => I18n.t("active_cms.pages.index.messages.moved_left"))
+  end
+  
+  member_action :move_right, :method => :get do
+    page = ActiveCms::Page.find(params[:id])
+    page.move_right
+    redirect_to({ :action => :index, :page_id => page.parent_id }, :notice => I18n.t("active_cms.pages.index.messages.moved_right"))
   end
   
 end

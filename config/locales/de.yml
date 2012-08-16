@@ -19,7 +19,10 @@ de:
           title: Titel
           slug: Identifizierer
           link: Link
-        icon:
+          order: Sortierung
+        messages:
+          moved_left: Seite wurde nach oben verschoben.
+          moved_right: Seite wurde nach unten verschoben.
           
       sidebar:
         none: alle Seiten
