@@ -6,12 +6,36 @@ module ActiveCms
     extend FriendlyId
     friendly_id :make_slug, :use => :slugged
     
+    default_scope :order => :lft
+    
     #has_ancestry
     acts_as_nested_set
     
     #####
     ## Admin - Functions
     #####
+    
+    # nestedset functions
+    # taken from http://stackoverflow.com/questions/2640553/how-to-reorder-nodes-within-a-node-using-awesome-nested-set
+    # Shorthand method for finding the left sibling and moving to the left of it.
+    def move_left
+      move_to_left_of left_sibling if left_sibling
+    end
+
+    #Shorthand method for finding the right sibling and moving to the right of it.
+    def move_right
+      move_to_right_of right_sibling if right_sibling
+    end
+
+    # Move the node to the left of another node (you can pass id only)
+    def move_to_left_of(node)
+      move_to node, :left
+    end
+
+    # Move the node to the left of another node (you can pass id only)
+    def move_to_right_of(node)
+      move_to node, :right
+    end
     
     # return header-title for show-page
     def show_title
