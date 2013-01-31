@@ -63,8 +63,8 @@ ActiveAdmin.register ActiveCms::Page, :as => 'CmsPage' do
     default_actions
     
     column I18n.t("active_cms.pages.index.header.order") do |page|
-      link_to(raw('<i class="icon-circle-arrow-up">^</i>'), move_left_admin_cms_page_path(page)) +
-      ' ' + link_to(raw('<i class="icon-circle-arrow-down">�</i>'), move_right_admin_cms_page_path(page))
+      link_to(raw('<i class="icon-circle-arrow-up">↑</i>'), move_left_admin_cms_page_path(page)) +
+      ' ' + link_to(raw('<i class="icon-circle-arrow-down">↓</i>'), move_right_admin_cms_page_path(page))
     end
     
   end
