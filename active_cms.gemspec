@@ -23,9 +23,9 @@ Gem::Specification.new do |s|
   s.add_dependency 'ancestry'
 
   s.add_dependency 'rack-cache'
-  s.add_dependency "dragonfly"
+#  s.add_dependency "dragonfly"
 
-  s.add_dependency "tinymce-rails"
-  s.add_dependency "tinymce-rails-langs"
+#  s.add_dependency "tinymce-rails"
+#  s.add_dependency "tinymce-rails-langs"
   
 end
