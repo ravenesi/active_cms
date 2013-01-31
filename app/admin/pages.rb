@@ -16,7 +16,7 @@ ActiveAdmin.register ActiveCms::Page, :as => 'CmsPage' do
     end
 
     f.inputs I18n.t("active_cms.pages.fields.body"), :class => 'inputs full-input' do
-      f.input :body, :label => false, :input_html => { :class => :tinymce_cms_page }
+      f.input :body, :label => false, :as => :ckeditor
     end
     
     f.inputs I18n.t("active_cms.pages.fields.sections.settings"), :class => 'settings' do
