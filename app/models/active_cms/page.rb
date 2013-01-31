@@ -88,7 +88,7 @@ module ActiveCms
     # return extern link to page
     def link
       self.redirect unless self.redirect.nil?
-      ('/'+self.slug).gsub('//', '/')+'.shtml'
+      ('/'+self.slug).gsub('//', '/')
     end
  
   end
