@@ -17,7 +17,7 @@ $(document).ready(function() {
       mode : "specific_textareas",
       editor_selector: 'tinymce_cms_page',
       theme : "advanced",
-      language : "de",
+      language : "en",
       plugins : "fullscreen",
       theme_advanced_blockformats : "h2,h3,h4,h5,h6,blockquote",
       theme_advanced_toolbar_location : "top",
