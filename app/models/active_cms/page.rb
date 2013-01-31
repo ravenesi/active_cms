@@ -1,6 +1,8 @@
 module ActiveCms
   class Page < ActiveRecord::Base
-        
+     
+    attr_accessible :title, :slug, :view_template_id, :body, :parent_id, :skip, :menu, :redirect, :meta_title, :meta_keywords, :meta_description
+
     self.table_name = 'active_cms_pages'
     
     extend FriendlyId
