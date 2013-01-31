@@ -1,7 +1,7 @@
 # encoding: utf-8
 ActiveAdmin.register ActiveCms::Page, :as => 'CmsPage' do
   
-  menu :label => 'active_cms.pages.label', :parent => 'active_cms.label', :if => proc{ defined?('can?') && can?(:manage, ActiveCms::Page) }
+  menu :label => proc{ I18n.t("active_cms.pages.label") }, :parent => proc{ I18n.t("active_cms.label") }, :if => proc{ defined?('can?') && can?(:manage, ActiveCms::Page) }
   
   config.sort_order = 'lft'
   config.batch_actions = false
